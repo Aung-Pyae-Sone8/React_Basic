@@ -21,8 +21,29 @@
 </body>
 
 <script type="text/babel">
+
   const Main = () => {
-    return <div>Hello World! This is main tag</div>
+    let name = "Aung Pyae Sone";
+    let number = 22;
+    let className = "my-class-name";
+
+    let clickHandler = () => {
+      alert('hello world');
+    }
+    let clickEvent = (e) => {
+      console.log(e);
+    }
+    return (
+      <>
+        <div className={className}>
+          my name is {name.toUpperCase()}
+        </div>
+        <p>{number}</p>
+        <p>{new Date().toDateString()}</p>
+        <button onClick={clickHandler}>Click Me</button>
+        <button onClick={clickEvent}>Events</button>
+      </>
+    )
   }
 
   let rootContainer = document.getElementById('main');
