@@ -9,7 +9,7 @@ function App() {
 
   let changeName = () => {
     setName("Aung Aung");
-    console.log(name);
+    // console.log(name);
   }
 
   // list
@@ -27,7 +27,14 @@ function App() {
       title : 'third post'
     }
   ]);
-  console.log(posts);
+  // console.log(posts);
+
+  // state update  
+  let [count,setCount] = useState(0) 
+
+  let increment = () => {
+    setCount((prevState)=>prevState+1);
+  }
 
   return (
     <div className="app">
@@ -41,6 +48,10 @@ function App() {
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>
+      <br/>
+      <h1>Counter</h1>
+      <h3>Count - {count}</h3>
+      <button onClick={increment}>Increment</button>
     </div>
   )
 }
