@@ -3,6 +3,7 @@ import Image from './assets/image.jpg';
 import { useState } from 'react';
 import Navbar from './components/Navbar/index';
 import PostsLists from './components/PostsList/index';
+import Modal from './components/Modal/index';
 
 function App() {
 
@@ -65,8 +66,12 @@ function App() {
         <h3>Count - {count}</h3>
         <button onClick={increment}>Increment</button>
       </div>
-      <Navbar/>
-      <PostsLists posts={posts}/>
+      <Navbar />
+      <PostsLists posts={posts} />
+      <Modal>
+        <h1>Zoom class is availale now!</h1>
+        <p>Feel free to <a href=''>join</a> here</p>
+      </Modal>
     </>
   )
 }
