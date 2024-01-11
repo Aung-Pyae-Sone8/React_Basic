@@ -43,6 +43,7 @@ function App() {
   let increment = () => {
     setCount((prevState) => prevState + 1);
   }
+  let [showModal, setShowModal] = useState(false);
 
   return (
     <>
@@ -66,12 +67,13 @@ function App() {
         <h3>Count - {count}</h3>
         <button onClick={increment}>Increment</button>
       </div>
-      <Navbar />
+      <Navbar setShowModal={setShowModal} />
       <PostsLists posts={posts} />
-      <Modal>
+      {showModal && <Modal>
         <h1>Zoom class is availale now!</h1>
         <p>Feel free to <a href=''>join</a> here</p>
-      </Modal>
+        <button onClick={()=>setShowModal(false)}>Close</button>
+      </Modal>}
     </>
   )
 }

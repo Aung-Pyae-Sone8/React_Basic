@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css';
 
-const Navbar = () => {
+const Navbar = ({setShowModal}) => {
     return (
         <nav>
             <div className='container'>
@@ -9,6 +9,7 @@ const Navbar = () => {
                 <ul>
                     <li>Home</li>
                     <li>Posts</li>
+                    <li onClick={()=>setShowModal(true)}>Sign In</li>
                 </ul>
             </div>
         </nav>
