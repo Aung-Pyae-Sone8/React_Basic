@@ -1,14 +1,18 @@
 import React from 'react';
 import './index.css';
+import ReactDom from 'react-dom';
 
-const Modal = ({children}) => {
+const Modal = ({ children }) => {
     return (
-        <div className='modal-backdrop'>
-            <div className="modal">
-                {/* modal content  */}
-                {children}
-            </div>
-        </div>
+        ReactDom.createPortal(
+            <div className='modal-backdrop'>
+                <div className="modal">
+                    {/* modal content  */}
+                    {children}
+                </div>
+            </div>,
+            document.getElementById('modal')
+        )
     )
 }
 
