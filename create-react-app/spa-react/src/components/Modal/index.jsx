@@ -5,10 +5,12 @@ import ReactDom from 'react-dom';
 const Modal = ({ children }) => {
     return (
         ReactDom.createPortal(
-            <div className='modal-backdrop'>
-                <div className="modal">
-                    {/* modal content  */}
-                    {children}
+            <div className="modal-component">
+                <div className='modal-backdrop'>
+                    <div className="modal">
+                        {/* modal content  */}
+                        {children}
+                    </div>
                 </div>
             </div>,
             document.getElementById('modal')
