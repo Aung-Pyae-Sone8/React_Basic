@@ -3,14 +3,12 @@ import './index.css';
 import ReactDom from 'react-dom';
 
 const Modal = ({ children, danger = false }) => {
+    let className = danger ? 'border-red' : 'border-blue'
     return (
         ReactDom.createPortal(
             <div className="modal-component">
                 <div className='modal-backdrop'>
-                    <div className="modal" style={{
-                        border : '4px solid',
-                        borderColor : danger ? 'red' : 'blue'
-                    }}>
+                    <div className={`modal ${className}`}>
                         {/* modal content  */}
                         {children}
                     </div>
