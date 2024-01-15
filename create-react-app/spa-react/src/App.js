@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Navbar from './components/Navbar/index';
 import PostsLists from './components/PostsList/index';
 import Modal from './components/Modal/index';
+import PostForm from './components/PostForm/index';
 
 function App() {
 
@@ -69,10 +70,8 @@ function App() {
       </div>
       <Navbar setShowModal={setShowModal} />
       <PostsLists posts={posts} />
-      {showModal && <Modal danger={true}>
-        <h1>Zoom class is availale now!</h1>
-        <p>Feel free to <a href=''>join</a> here</p>
-        <button onClick={()=>setShowModal(false)}>Close</button>
+      {showModal && <Modal danger={true} setShowModal={setShowModal}>
+            <PostForm/>
       </Modal>}
     </>
   )

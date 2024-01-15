@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import ReactDom from 'react-dom';
 
-const Modal = ({ children, danger = false }) => {
+const Modal = ({ children, danger = false, setShowModal }) => {
     let className = danger ? 'border-red' : 'border-blue'
     return (
         ReactDom.createPortal(
@@ -11,6 +11,7 @@ const Modal = ({ children, danger = false }) => {
                     <div className={`modal ${className}`}>
                         {/* modal content  */}
                         {children}
+                        <button onClick={()=>setShowModal(false)}>Close</button>
                     </div>
                 </div>
             </div>,
