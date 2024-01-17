@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './index.css';
 
 const PostFrom = ({addPost}) => {
 
-    let [title,setTitle] = useState("");
+    // let [title,setTitle] = useState("");
+
+    let title = useRef();
 
     let resetForm = () => {
-        setTitle('');
-        console.log('updated successfully');
+        // setTitle('');
+        title.current.value = "";
+        // console.log('updated successfully');
     }
 
     let upload_post = (e) => {
@@ -15,7 +18,7 @@ const PostFrom = ({addPost}) => {
 
         let post = {
             id : Math.floor(Math.random()*10000),
-            title : title
+            title : title.current.value
         }
         resetForm();
         addPost(post);
@@ -26,7 +29,7 @@ const PostFrom = ({addPost}) => {
             <h1>Create Post</h1>
             <div className="form-control">
                 <label htmlFor="">Title</label>
-                <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
+                <input type="text" ref={title}/>
             </div>
             <p>{title}</p>
             <div className="form-control">
