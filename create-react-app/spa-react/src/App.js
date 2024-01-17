@@ -26,12 +26,12 @@ function App() {
       id: 2,
       title: 'second post'
     },
-    {
-      id: 3,
-      title: 'third post'
-    }
   ]);
-  // console.log(posts);
+
+  let addPost = (post) => {
+    setPosts((prevState => [...prevState,post]));
+    setShowModal(false);
+  }
 
   // delete post 
   let deletePost = (id) => {
@@ -71,7 +71,7 @@ function App() {
       <Navbar setShowModal={setShowModal} />
       <PostsLists posts={posts} />
       {showModal && <Modal danger={true} setShowModal={setShowModal}>
-            <PostForm/>
+            <PostForm addPost={addPost}/>
       </Modal>}
     </>
   )
