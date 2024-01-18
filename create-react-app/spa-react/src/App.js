@@ -20,11 +20,13 @@ function App() {
   let [posts, setPosts] = useState([
     {
       id: 1,
-      title: 'First post'
+      title: 'First post',
+      status : 'upcoming'
     },
     {
       id: 2,
-      title: 'second post'
+      title: 'second post',
+      status : 'dropped'
     },
   ]);
 

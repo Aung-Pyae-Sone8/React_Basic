@@ -4,6 +4,7 @@ import './index.css';
 const PostFrom = ({addPost}) => {
 
     let [title,setTitle] = useState("");
+    let [status, setStatus] = useState("upcoming");
 
     let resetForm = () => {
         setTitle('');
@@ -15,7 +16,8 @@ const PostFrom = ({addPost}) => {
 
         let post = {
             id : Math.floor(Math.random()*10000),
-            title : title
+            title : title,
+            status : status
         }
         resetForm();
         addPost(post);
@@ -27,6 +29,14 @@ const PostFrom = ({addPost}) => {
             <div className="form-control">
                 <label htmlFor="">Title</label>
                 <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
+            </div>
+            <div className="form-control">
+                <label htmlFor="">Status</label>
+                <select name="" id="" value={status} onChange={(e) => setStatus(e.target.value)}>
+                    <option value="dropped">Dropped</option>
+                    <option value="ongoing">Ongoing</option>
+                    <option value="upcoming">Upcoming</option>
+                </select>
             </div>
             <p>{title}</p>
             <div className="form-control">

@@ -8,7 +8,10 @@ const PostsLists = ({posts}) => {
     return (
         <div className='postlist container'>
             {posts.map((post) => (
-                <div key={post.id} className={`single-post ${styles.card}`}>{post.title}</div>
+                <div key={post.id} className={`single-post ${styles.card}`}>
+                    <h3>{post.title}</h3>
+                    <h4>status - {post.status}</h4>
+                </div>
             ))}
         </div>
     )
